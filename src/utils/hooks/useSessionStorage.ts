@@ -1,4 +1,4 @@
-import { key } from '../references/storage.json';
+import { key } from '../resources/storage.json';
 
 export const useSessionStorage = () => {
   function get() {

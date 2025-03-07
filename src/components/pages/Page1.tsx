@@ -1,11 +1,17 @@
 import { useState, useId, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useSessionStorage } from '../utils/hooks/useSessionStorage';
+import { useSessionStorage } from '../../utils/hooks/useSessionStorage';
 
-import Error from '../components/error/Error';
+import Error from '../error/Error';
+
+import { useTranslation } from 'react-i18next';
 
 function Page1() {
+  const {
+    t,
+    i18n: { language: currentLanguage },
+  } = useTranslation();
   const [get, set] = useSessionStorage();
   const [registrationData, setRegistrationData] = useState(get);
   const [error, setError] = useState(false);
@@ -18,7 +24,11 @@ function Page1() {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    containerRef.current?.classList.add('page-exit-forward');
+    if (currentLanguage === 'ar') {
+      containerRef.current?.classList.add('page-exit-back');
+    } else {
+      containerRef.current?.classList.add('page-exit-forward');
+    }
     set(registrationData)
       .then(() => {
         setTimeout(() => {
@@ -36,10 +46,10 @@ function Page1() {
     <>
       {error && <Error />}
       <div ref={containerRef} className="container">
-        <h1>Let's hear more about you to prepare your personal workout plan</h1>
+        <h1>{t('page1_title')}</h1>
         <div className="form-group">
           <label htmlFor={heightLabelId}>
-            Your Height (cm):
+            {t('page1_input1_label')}
             <input
               id={heightLabelId}
               type="number"
@@ -50,13 +60,13 @@ function Page1() {
                   height: e.target.value,
                 }))
               }
-              placeholder="Enter your height"
+              placeholder={t('page1_input1_placeholder')}
             />
           </label>
         </div>
         <div className="form-group">
           <label htmlFor={weightLabelId}>
-            Your Weight (kg):
+            {t('page1_input2_label')}
             <input
               id={weightLabelId}
               type="number"
@@ -67,17 +77,17 @@ function Page1() {
                   weight: e.target.value,
                 }))
               }
-              placeholder="Enter your weight"
+              placeholder={t('page1_input2_placeholder')}
             />
           </label>
         </div>
         <div className="button-group">
-          <button disabled>Back</button>
+          <button disabled>{t('back')}</button>
           <button
             onClick={handleNext}
             disabled={!registrationData.height || !registrationData.weight}
           >
-            Next
+            {t('next')}
           </button>
         </div>
       </div>

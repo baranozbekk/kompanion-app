@@ -2,9 +2,10 @@ import { useId } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import './LanguageSwitcher.css';
+
 const LanguageSwitcher = () => {
   const {
-    t,
     i18n: { changeLanguage, language },
   } = useTranslation();
   const selectId = useId();
@@ -14,8 +15,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div style={{ position: 'absolute', top: 0, right: 0 }}>
-      <label htmlFor={selectId}>{t('choose_language')}</label>
+    <div className="select-container">
       <select value={language} onChange={handleChange} id={selectId}>
         <option value="en">English</option>
         <option value="ar">عربي</option>

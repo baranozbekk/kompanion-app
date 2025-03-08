@@ -1,0 +1,26 @@
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-batch {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 7rem;
+}
+
+.form-group p {
+  text-align: left;
+  font-size: 12px;
+  color: red;
+  margin: 4px 8px 0 8px;
+}
+
+.text-align-right {
+  text-align: right !important;
+}

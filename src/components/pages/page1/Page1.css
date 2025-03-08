@@ -1,0 +1,13 @@
+.heading-container {
+  height: 96px;
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-group-container {
+  width: 100%;
+}

@@ -1,8 +1,15 @@
 .select-container {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
   width: 150px;
+}
+
+@media (min-height: 668px) {
+  .select-container {
+    top: 2rem;
+    right: 2rem;
+  }
 }
 
 .languageSelectorcontainer {

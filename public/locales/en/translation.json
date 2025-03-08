@@ -32,5 +32,7 @@
   "too_short": "Must be at least 2 chars",
   "too_long": "Must be shorter than 50 chars",
   "required": "This field is required",
-  "must_be_email": "Must be a valid email"
+  "must_be_email": "Must be a valid email",
+  "saving": "Saving...",
+  "saved": "✅ Saved. Check console."
 }

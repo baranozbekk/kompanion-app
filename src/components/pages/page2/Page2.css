@@ -19,7 +19,13 @@
   width: 100%;
   height: auto;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.8rem;
+}
+
+@media (min-height: 668px) {
+  .day-button {
+    font-size: 1rem;
+  }
 }
 
 .day-button:focus,

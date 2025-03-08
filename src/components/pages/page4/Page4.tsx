@@ -59,6 +59,18 @@ function Page4() {
     [currentLanguage]
   );
 
+  const saving = useMemo(
+    () => t('saving'),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [currentLanguage]
+  );
+
+  const saved = useMemo(
+    () => t('saved'),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [currentLanguage]
+  );
+
   const nameFieldId = useId();
   const surnameFieldId = useId();
   const emailFieldId = useId();
@@ -104,10 +116,10 @@ function Page4() {
 
   const handleSubmit = (values: FormValues, actions: FormikActions) => {
     if (headingRef.current) {
-      headingRef.current.textContent = 'Saving...';
+      headingRef.current.textContent = saving;
       setTimeout(() => {
         if (headingRef.current) {
-          headingRef.current.textContent = '✅ Saved. Check console.';
+          headingRef.current.textContent = saved;
           setRegistrationData({});
         }
       }, 1000);
